@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RideEasy - Book Your Cab</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-brand">
+                <i class="fas fa-car"></i>
+                <span>RideEasy</span>
+            </div>
+            <div class="nav-menu">
+                <a href="index.html" class="active">Home</a>
+                <a href="services.html">Services</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Book Your Ride in Minutes</h1>
+            <p>Safe, reliable, and affordable cab service at your fingertips</p>
+        </div>
+        
+        <!-- Booking Form -->
+        <div class="booking-container">
+            <div class="booking-form">
+                <h2>Book Your Cab</h2>
+                <form id="bookingForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="pickup">
+                                <i class="fas fa-map-marker-alt pickup-icon"></i>
+                                Pickup Location
+                            </label>
+                            <input type="text" id="pickup" placeholder="Enter pickup location" required>
+                            <div class="location-suggestions" id="pickupSuggestions"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="dropoff">
+                                <i class="fas fa-map-marker-alt dropoff-icon"></i>
+                                Drop-off Location
+                            </label>
+                            <input type="text" id="dropoff" placeholder="Enter destination" required>
+                            <div class="location-suggestions" id="dropoffSuggestions"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="date">
+                                <i class="fas fa-calendar"></i>
+                                Date
+                            </label>
+                            <input type="date" id="date" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="time">
+                                <i class="fas fa-clock"></i>
+                                Time
+                            </label>
+                            <input type="time" id="time" required>
+                        </div>
+                    </div>
+
+                    <!-- Map Container -->
+                    <div class="map-container">
+                        <div id="map"></div>
+                        <div class="map-controls">
+                            <button type="button" id="showRoute" class="map-btn">
+                                <i class="fas fa-route"></i>
+                                Show Route
+                            </button>
+                            <button type="button" id="clearRoute" class="map-btn">
+                                <i class="fas fa-times"></i>
+                                Clear Route
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="car-selection">
+                        <h3>Select Car Type</h3>
+                        <div class="car-options">
+                            <div class="car-option" data-type="economy" data-price="1.5">
+                                <i class="fas fa-car"></i>
+                                <div class="car-info">
+                                    <h4>Economy</h4>
+                                    <p>$1.50/km</p>
+                                </div>
+                            </div>
+                            <div class="car-option" data-type="comfort" data-price="2.0">
+                                <i class="fas fa-car-side"></i>
+                                <div class="car-info">
+                                    <h4>Comfort</h4>
+                                    <p>$2.00/km</p>
+                                </div>
+                            </div>
+                            <div class="car-option" data-type="luxury" data-price="3.5">
+                                <i class="fas fa-car-alt"></i>
+                                <div class="car-info">
+                                    <h4>Luxury</h4>
+                                    <p>$3.50/km</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="price-estimate">
+                        <div class="estimate-info">
+                            <div class="estimate-row">
+                                <span>Distance: <span id="distance">-- km</span></span>
+                                <span>Duration: <span id="duration">-- min</span></span>
+                            </div>
+                            <div class="estimate-row">
+                                <span>Base Fare: <span id="baseFare">$5.00</span></span>
+                                <span>Total Price: <span id="price">$--</span></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="book-btn">
+                        <i class="fas fa-car"></i>
+                        Book Now
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Features Section -->
+    <section class="quick-features">
+        <div class="container">
+            <div class="features-grid">
+                <div class="feature-item">
+                    <i class="fas fa-clock"></i>
+                    <h3>Quick Booking</h3>
+                    <p>Book in under 2 minutes</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Safe & Secure</h3>
+                    <p>Verified drivers only</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-dollar-sign"></i>
+                    <h3>Best Prices</h3>
+                    <p>No hidden charges</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-mobile-alt"></i>
+                    <h3>24/7 Support</h3>
+                    <p>Always here to help</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Experience Premium Cab Service?</h2>
+                <p>Join thousands of satisfied customers who trust RideEasy for their transportation needs.</p>
+                <div class="cta-buttons">
+                    <a href="services.html" class="btn-primary">View Our Services</a>
+                    <a href="about.html" class="btn-secondary">Learn More About Us</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <i class="fas fa-car"></i>
+                    <span>RideEasy</span>
+                </div>
+                <div class="footer-links">
+                    <a href="index.html">Home</a>
+                    <a href="services.html">Services</a>
+                    <a href="about.html">About</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 RideEasy. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Booking Confirmation Modal -->
+    <div id="confirmationModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="modal-header">
+                <i class="fas fa-check-circle"></i>
+                <h2>Booking Confirmed!</h2>
+            </div>
+            <div class="modal-body">
+                <div class="booking-details">
+                    <h3>Booking Details</h3>
+                    <div class="detail-row">
+                        <span>Booking ID:</span>
+                        <span id="bookingId">--</span>
+                    </div>
+                    <div class="detail-row">
+                        <span>Pickup:</span>
+                        <span id="modalPickup">--</span>
+                    </div>
+                    <div class="detail-row">
+                        <span>Drop-off:</span>
+                        <span id="modalDropoff">--</span>
+                    </div>
+                    <div class="detail-row">
+                        <span>Date & Time:</span>
+                        <span id="modalDateTime">--</span>
+                    </div>
+                    <div class="detail-row">
+                        <span>Car Type:</span>
+                        <span id="modalCarType">--</span>
+                    </div>
+                    <div class="detail-row">
+                        <span>Distance:</span>
+                        <span id="modalDistance">--</span>
+                    </div>
+                    <div class="detail-row">
+                        <span>Duration:</span>
+                        <span id="modalDuration">--</span>
+                    </div>
+                    <div class="detail-row">
+                        <span>Total Price:</span>
+                        <span id="modalPrice">--</span>
+                    </div>
+                </div>
+                <p class="confirmation-message">Your driver will arrive 5 minutes before the scheduled time. You will receive SMS updates about your ride.</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary" onclick="closeModal()">Close</button>
+                <button class="btn-primary" onclick="trackRide()">Track Ride</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- API Key Notice Modal -->
+    <div id="apiKeyModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <i class="fas fa-key"></i>
+                <h2>Google Maps API Required</h2>
+            </div>
+            <div class="modal-body">
+                <p>To use the location autocomplete and route visualization features, you need to:</p>
+                <ol>
+                    <li>Get a Google Maps API key from <a href="https://console.cloud.google.com/" target="_blank">Google Cloud Console</a></li>
+                    <li>Enable the following APIs:
+                        <ul>
+                            <li>Maps JavaScript API</li>
+                            <li>Places API</li>
+                            <li>Directions API</li>
+                            <li>Distance Matrix API</li>
+                        </ul>
+                    </li>
+                    <li>Replace 'YOUR_API_KEY' in the script tag with your actual API key</li>
+                </ol>
+                <p><strong>For demo purposes, the app will work with simulated data.</strong></p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-primary" onclick="closeApiKeyModal()">Continue with Demo</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Load Google Maps API -->
+    <script async defer 
+        src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places&callback=initMap">
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>
