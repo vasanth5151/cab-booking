@@ -1,301 +1,548 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RideEasy - Book Your Cab</title>
+    <title>Sanjai Car Taxi | Best Taxi Service at Lowest Price</title>
+    <meta name="description"
+        content="Sanjai Car Taxi offers affordable one-way taxi, outstation taxi, and airport taxi services across Tamil Nadu, Bangalore & Pondicherry. Book now at lowest fares!">
+    <meta name="keywords"
+        content="car taxi, sanjai taxi, one way taxi, outstation taxi, airport taxi, Chennai taxi, Madurai taxi, Bangalore taxi, Tirupati taxi, low cost taxi">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Sanjai Car Taxi | Best Taxi Service">
+    <meta property="og:description"
+        content="Affordable one-way taxi, outstation & airport taxi services across Tamil Nadu, Bangalore & Pondicherry.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sanjaicartaxi.com/">
+    <link rel="canonical" href="https://sanjaicartaxi.com/">
+
+    <!-- Stylesheets -->
     <link rel="stylesheet" href="styles.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
+
 <body>
-    <!-- Header -->
-    <header class="header">
-        <nav class="navbar">
-            <div class="nav-brand">
-                <i class="fas fa-car"></i>
-                <span>RideEasy</span>
+
+    <!-- ══════ Top Bar ══════ -->
+    <div class="top-bar" id="top-bar">
+        <div class="container">
+            <div class="top-bar-left">
+                <a href="mailto:sanjaicartaxi@gmail.com">
+                    <i class="fas fa-envelope"></i>
+                    sanjaicartaxi@gmail.com
+                </a>
+                <a href="tel:+918015646656">
+                    <i class="fas fa-phone"></i>
+                    +91 8015 646 656
+                </a>
             </div>
-            <div class="nav-menu">
+            <div class="top-bar-right">
+                <a href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook"><i
+                        class="fab fa-facebook-f"></i></a>
+                <a href="https://twitter.com" target="_blank" rel="noopener" aria-label="Twitter"><i
+                        class="fab fa-twitter"></i></a>
+                <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram"><i
+                        class="fab fa-instagram"></i></a>
+                <a href="https://youtube.com" target="_blank" rel="noopener" aria-label="YouTube"><i
+                        class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ══════ Navbar ══════ -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <a href="index.html" class="nav-brand">
+                <div class="nav-logo">SC</div>
+                <div class="nav-brand-text">
+                    <h1>Sanjai</h1>
+                    <span>Car Taxi</span>
+                </div>
+            </a>
+
+            <div class="nav-links" id="nav-links">
                 <a href="index.html" class="active">Home</a>
                 <a href="services.html">Services</a>
-                <a href="about.html">About</a>
                 <a href="contact.html">Contact</a>
             </div>
-            <div class="nav-toggle">
-                <span></span>
-                <span></span>
-                <span></span>
+
+            <div class="nav-cta" id="nav-cta">
+                <a href="tel:+918015646656" class="nav-phone">
+                    <i class="fas fa-phone"></i>
+                    8015 646 656
+                </a>
+                <a href="#booknow" class="btn btn-primary nav-book-btn">Book Now</a>
             </div>
-        </nav>
-    </header>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <h1>Book Your Ride in Minutes</h1>
-            <p>Safe, reliable, and affordable cab service at your fingertips</p>
+            <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
-        
-        <!-- Booking Form -->
-        <div class="booking-container">
-            <div class="booking-form">
-                <h2>Book Your Cab</h2>
-                <form id="bookingForm">
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="pickup">
-                                <i class="fas fa-map-marker-alt pickup-icon"></i>
-                                Pickup Location
-                            </label>
-                            <input type="text" id="pickup" placeholder="Enter pickup location" required>
-                            <div class="location-suggestions" id="pickupSuggestions"></div>
-                        </div>
-                        <div class="form-group">
-                            <label for="dropoff">
-                                <i class="fas fa-map-marker-alt dropoff-icon"></i>
-                                Drop-off Location
-                            </label>
-                            <input type="text" id="dropoff" placeholder="Enter destination" required>
-                            <div class="location-suggestions" id="dropoffSuggestions"></div>
-                        </div>
-                    </div>
-                    
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="date">
-                                <i class="fas fa-calendar"></i>
-                                Date
-                            </label>
-                            <input type="date" id="date" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="time">
-                                <i class="fas fa-clock"></i>
-                                Time
-                            </label>
-                            <input type="time" id="time" required>
-                        </div>
-                    </div>
+    </nav>
 
-                    <!-- Map Container -->
-                    <div class="map-container">
-                        <div id="map"></div>
-                        <div class="map-controls">
-                            <button type="button" id="showRoute" class="map-btn">
-                                <i class="fas fa-route"></i>
-                                Show Route
-                            </button>
-                            <button type="button" id="clearRoute" class="map-btn">
-                                <i class="fas fa-times"></i>
-                                Clear Route
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="car-selection">
-                        <h3>Select Car Type</h3>
-                        <div class="car-options">
-                            <div class="car-option" data-type="economy" data-price="1.5">
-                                <i class="fas fa-car"></i>
-                                <div class="car-info">
-                                    <h4>Economy</h4>
-                                    <p>$1.50/km</p>
-                                </div>
-                            </div>
-                            <div class="car-option" data-type="comfort" data-price="2.0">
-                                <i class="fas fa-car-side"></i>
-                                <div class="car-info">
-                                    <h4>Comfort</h4>
-                                    <p>$2.00/km</p>
-                                </div>
-                            </div>
-                            <div class="car-option" data-type="luxury" data-price="3.5">
-                                <i class="fas fa-car-alt"></i>
-                                <div class="car-info">
-                                    <h4>Luxury</h4>
-                                    <p>$3.50/km</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="price-estimate">
-                        <div class="estimate-info">
-                            <div class="estimate-row">
-                                <span>Distance: <span id="distance">-- km</span></span>
-                                <span>Duration: <span id="duration">-- min</span></span>
-                            </div>
-                            <div class="estimate-row">
-                                <span>Base Fare: <span id="baseFare">$5.00</span></span>
-                                <span>Total Price: <span id="price">$--</span></span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <button type="submit" class="book-btn">
-                        <i class="fas fa-car"></i>
-                        Book Now
-                    </button>
-                </form>
-            </div>
+    <!-- ══════ Marquee ══════ -->
+    <div class="marquee-bar">
+        <div class="marquee-content" id="marquee-content">
+            <span><i class="fas fa-circle"></i> Chennai</span>
+            <span><i class="fas fa-circle"></i> Madurai</span>
+            <span><i class="fas fa-circle"></i> Bangalore</span>
+            <span><i class="fas fa-circle"></i> Tirupati</span>
+            <span><i class="fas fa-circle"></i> Coimbatore</span>
+            <span><i class="fas fa-circle"></i> Trichy</span>
+            <span><i class="fas fa-circle"></i> Pondicherry</span>
+            <span><i class="fas fa-circle"></i> Salem</span>
+            <!-- Duplicate for seamless scroll -->
+            <span><i class="fas fa-circle"></i> Chennai</span>
+            <span><i class="fas fa-circle"></i> Madurai</span>
+            <span><i class="fas fa-circle"></i> Bangalore</span>
+            <span><i class="fas fa-circle"></i> Tirupati</span>
+            <span><i class="fas fa-circle"></i> Coimbatore</span>
+            <span><i class="fas fa-circle"></i> Trichy</span>
+            <span><i class="fas fa-circle"></i> Pondicherry</span>
+            <span><i class="fas fa-circle"></i> Salem</span>
         </div>
-    </section>
+    </div>
 
-    <!-- Quick Features Section -->
-    <section class="quick-features">
+    <!-- ══════ Hero Section ══════ -->
+    <section class="hero" id="hero">
         <div class="container">
-            <div class="features-grid">
-                <div class="feature-item">
-                    <i class="fas fa-clock"></i>
-                    <h3>Quick Booking</h3>
-                    <p>Book in under 2 minutes</p>
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <i class="fas fa-star"></i>
+                    Your Most Trusted Travel Partner
                 </div>
-                <div class="feature-item">
-                    <i class="fas fa-shield-alt"></i>
-                    <h3>Safe & Secure</h3>
-                    <p>Verified drivers only</p>
+                <h1>Best Drop Taxi <br>Service at <span>Lowest Price</span></h1>
+                <p>Affordable one-way drop taxi, outstation travel, and airport transfers across Tamil Nadu, Bangalore &
+                    Pondicherry. Ride safe, ride smart!</p>
+                <div class="hero-buttons">
+                    <a href="#booknow" class="btn btn-primary">
+                        <i class="fas fa-car"></i> Book Your Ride
+                    </a>
+                    <a href="tel:+918015646656" class="btn btn-white">
+                        <i class="fas fa-phone"></i> Call Us Now
+                    </a>
                 </div>
-                <div class="feature-item">
-                    <i class="fas fa-dollar-sign"></i>
-                    <h3>Best Prices</h3>
-                    <p>No hidden charges</p>
+                <div class="hero-stats">
+                    <div class="hero-stat">
+                        <div class="number" data-target="1000">0</div>
+                        <div class="label">Completed Trips</div>
+                    </div>
+                    <div class="hero-stat">
+                        <div class="number" data-target="30">0</div>
+                        <div class="label">Expert Drivers</div>
+                    </div>
+                    <div class="hero-stat">
+                        <div class="number" data-target="300">0</div>
+                        <div class="label">Happy Customers</div>
+                    </div>
                 </div>
-                <div class="feature-item">
-                    <i class="fas fa-mobile-alt"></i>
-                    <h3>24/7 Support</h3>
-                    <p>Always here to help</p>
+            </div>
+
+            <!-- Booking Form -->
+            <div class="hero-form-wrapper" id="booknow">
+                <div class="booking-form">
+                    <h3>Book Your Ride</h3>
+                    <p>Fill in details to get the best fare</p>
+                    <form id="booking-form">
+                        <div class="form-group">
+                            <label for="trip-type">Trip Type</label>
+                            <select id="trip-type" required>
+                                <option value="">Select Trip Type</option>
+                                <option value="oneway">One Way</option>
+                                <option value="roundtrip">Round Trip</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="pickup">Pick-up Location</label>
+                            <input type="text" id="pickup" placeholder="Enter pick-up location" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="dropoff">Drop-off Location</label>
+                            <input type="text" id="dropoff" placeholder="Enter drop-off location" required>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="pickup-date">Pick-up Date</label>
+                                <input type="date" id="pickup-date" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="pickup-time">Pick-up Time</label>
+                                <input type="time" id="pickup-time" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="passenger-name">Your Name</label>
+                            <input type="text" id="passenger-name" placeholder="Enter your name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="passenger-phone">Phone Number</label>
+                            <input type="tel" id="passenger-phone" placeholder="Enter phone number" required>
+                        </div>
+                        <button type="submit" class="form-submit-btn">
+                            <i class="fas fa-paper-plane"></i> Book Now
+                        </button>
+                    </form>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CTA Section -->
-    <section class="cta-section">
+    <!-- ══════ About Section ══════ -->
+    <section class="about-section animate-on-scroll" id="about">
+        <div class="container">
+            <div class="about-image">
+                <img src="images/about-img.png" alt="Sanjai Car Taxi - Happy customers at airport" loading="lazy"
+                    width="560" height="400">
+                <div class="about-image-badge">
+                    <span class="badge-number">5+</span>
+                    <span class="badge-text">Years of Trust</span>
+                </div>
+            </div>
+            <div class="about-content">
+                <div class="section-badge"><i class="fas fa-info-circle"></i> About Us</div>
+                <h2 class="section-title">Welcome to <span>Sanjai</span> Car Taxi</h2>
+                <p class="section-subtitle">Sanjai Car Taxi offers a range of convenient transportation services,
+                    including one-way drop-offs, outstation travel, and airport transfers, all at competitive prices.
+                </p>
+                <p class="section-subtitle" style="margin-top: 16px;">Operating across Tamil Nadu, Bangalore, and
+                    Pondicherry, our fleet of well-maintained vehicles and professional drivers guarantees a safe and
+                    pleasant experience.</p>
+                <div class="about-features">
+                    <div class="about-feature">
+                        <i class="fas fa-tags"></i>
+                        <span>Lowest Price Guarantee</span>
+                    </div>
+                    <div class="about-feature">
+                        <i class="fas fa-headset"></i>
+                        <span>24/7 Customer Support</span>
+                    </div>
+                    <div class="about-feature">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>Safe & Secure Rides</span>
+                    </div>
+                    <div class="about-feature">
+                        <i class="fas fa-car-side"></i>
+                        <span>Well Maintained Fleet</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════ Tariff Section ══════ -->
+    <section class="tariff-section animate-on-scroll" id="tariff">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge"><i class="fas fa-receipt"></i> Pricing</div>
+                <h2 class="section-title">Our <span>Tariff</span> Plans</h2>
+                <p class="section-subtitle">Transparent pricing with no hidden charges. Choose from our range of
+                    comfortable vehicles.</p>
+            </div>
+            <div class="tariff-cards">
+                <!-- Sedan Card -->
+                <div class="tariff-card">
+                    <img src="images/sedan-car1.webp" alt="Sedan - Dzire / Etios" class="tariff-card-img">
+                    <h3>Sedan</h3>
+                    <p class="car-type">Dzire / Etios</p>
+                    <div class="price">
+                        <span class="currency">₹</span>14
+                        <span class="unit">/km</span>
+                    </div>
+                    <p class="price-label">One Way Starting Price</p>
+                    <ul class="tariff-features">
+                        <li><i class="fas fa-check-circle"></i> Round Trip - ₹13/km</li>
+                        <li><i class="fas fa-check-circle"></i> Driver Allowance - ₹400</li>
+                        <li><i class="fas fa-check-circle"></i> One Way - Min 130 KM</li>
+                        <li><i class="fas fa-check-circle"></i> Round Trip - Min 250 KM</li>
+                    </ul>
+                    <a href="#booknow" class="btn btn-outline">Book Sedan</a>
+                </div>
+
+                <!-- SUV Card (Featured) -->
+                <div class="tariff-card featured">
+                    <img src="images/suv-car2.webp" alt="SUV - Xylo / Ertiga" class="tariff-card-img">
+                    <h3>SUV</h3>
+                    <p class="car-type">Xylo / Ertiga</p>
+                    <div class="price">
+                        <span class="currency">₹</span>19
+                        <span class="unit">/km</span>
+                    </div>
+                    <p class="price-label">One Way Starting Price</p>
+                    <ul class="tariff-features">
+                        <li><i class="fas fa-check-circle"></i> Round Trip - ₹18/km</li>
+                        <li><i class="fas fa-check-circle"></i> Driver Allowance - ₹400</li>
+                        <li><i class="fas fa-check-circle"></i> One Way - Min 130 KM</li>
+                        <li><i class="fas fa-check-circle"></i> Round Trip - Min 250 KM</li>
+                    </ul>
+                    <a href="#booknow" class="btn btn-primary">Book SUV</a>
+                </div>
+
+                <!-- Innova Card -->
+                <div class="tariff-card">
+                    <img src="images/innova3.webp" alt="Assured Innova" class="tariff-card-img">
+                    <h3>Assured Innova</h3>
+                    <p class="car-type">Toyota Innova</p>
+                    <div class="price">
+                        <span class="currency">₹</span>19
+                        <span class="unit">/km</span>
+                    </div>
+                    <p class="price-label">One Way Starting Price</p>
+                    <ul class="tariff-features">
+                        <li><i class="fas fa-check-circle"></i> Round Trip - ₹18/km</li>
+                        <li><i class="fas fa-check-circle"></i> Driver Allowance - ₹400</li>
+                        <li><i class="fas fa-check-circle"></i> One Way - Min 130 KM</li>
+                        <li><i class="fas fa-check-circle"></i> Round Trip - Min 250 KM</li>
+                    </ul>
+                    <a href="#booknow" class="btn btn-outline">Book Innova</a>
+                </div>
+
+                <!-- Innova Crysta Card -->
+                <div class="tariff-card">
+                    <img src="images/innova-crysta.png" alt="Innova Crysta" class="tariff-card-img">
+                    <h3>Innova Crysta</h3>
+                    <p class="car-type">Luxury SUV</p>
+                    <div class="price">
+                        <span class="currency">₹</span>25
+                        <span class="unit">/km</span>
+                    </div>
+                    <p class="price-label">One Way Starting Price</p>
+                    <ul class="tariff-features">
+                        <li><i class="fas fa-check-circle"></i> Round Trip - ₹24/km</li>
+                        <li><i class="fas fa-check-circle"></i> Driver Allowance - ₹600</li>
+                        <li><i class="fas fa-check-circle"></i> One Way - Min 130 KM</li>
+                        <li><i class="fas fa-check-circle"></i> Round Trip - Min 250 KM</li>
+                    </ul>
+                    <a href="#booknow" class="btn btn-outline">Book Crysta</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════ Services Section ══════ -->
+    <section class="services-section animate-on-scroll" id="services">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge"><i class="fas fa-concierge-bell"></i> What We Offer</div>
+                <h2 class="section-title">Choose Our <span>Best Services</span></h2>
+                <p class="section-subtitle">We provide premium taxi services tailored for every journey type.</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-route"></i></div>
+                    <h3>One Way Drop Taxi</h3>
+                    <p>Pay only for one way! No return fare. Affordable point-to-point travel across Tamil Nadu and
+                        neighboring states.</p>
+                    <a href="#booknow" class="btn btn-outline">Book Now</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-map-marked-alt"></i></div>
+                    <h3>Outstation Taxi</h3>
+                    <p>Plan your outstation trips with comfort and convenience. Flexible packages for all your
+                        inter-city travel needs.</p>
+                    <a href="#booknow" class="btn btn-outline">Book Now</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-plane-departure"></i></div>
+                    <h3>Airport Taxi</h3>
+                    <p>Reliable airport pickup & drop service. On-time, every time. Available 24/7 across all major
+                        airports.</p>
+                    <a href="#booknow" class="btn btn-outline">Book Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════ Stats Section ══════ -->
+    <section class="stats-section animate-on-scroll" id="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-icon"><i class="fas fa-car-side"></i></div>
+                    <span class="count" data-target="1000">0</span>
+                    <span class="stat-label">Completed Trips</span>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-icon"><i class="fas fa-user-tie"></i></div>
+                    <span class="count" data-target="30">0</span>
+                    <span class="stat-label">Expert Drivers</span>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-icon"><i class="fas fa-smile-beam"></i></div>
+                    <span class="count" data-target="300">0</span>
+                    <span class="stat-label">Happy Customers</span>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-icon"><i class="fas fa-map"></i></div>
+                    <span class="count" data-target="50">0</span>
+                    <span class="stat-label">Cities Covered</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════ Routes Section ══════ -->
+    <section class="routes-section animate-on-scroll" id="routes">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge"><i class="fas fa-map-signs"></i> Destinations</div>
+                <h2 class="section-title">Our Major <span>Routes</span></h2>
+                <p class="section-subtitle">We cover all major cities across Tamil Nadu, Karnataka & Andhra Pradesh.</p>
+            </div>
+            <div class="routes-grid">
+                <a href="#booknow" class="route-card">
+                    <div class="route-icon"><i class="fas fa-city"></i></div>
+                    <div>
+                        <h4>Chennai</h4>
+                        <span>One Way / Round Trip</span>
+                    </div>
+                </a>
+                <a href="#booknow" class="route-card">
+                    <div class="route-icon"><i class="fas fa-city"></i></div>
+                    <div>
+                        <h4>Madurai</h4>
+                        <span>One Way / Round Trip</span>
+                    </div>
+                </a>
+                <a href="#booknow" class="route-card">
+                    <div class="route-icon"><i class="fas fa-city"></i></div>
+                    <div>
+                        <h4>Bangalore</h4>
+                        <span>One Way / Round Trip</span>
+                    </div>
+                </a>
+                <a href="#booknow" class="route-card">
+                    <div class="route-icon"><i class="fas fa-gopuram"></i></div>
+                    <div>
+                        <h4>Tirupati</h4>
+                        <span>One Way / Round Trip</span>
+                    </div>
+                </a>
+                <a href="#booknow" class="route-card">
+                    <div class="route-icon"><i class="fas fa-city"></i></div>
+                    <div>
+                        <h4>Coimbatore</h4>
+                        <span>One Way / Round Trip</span>
+                    </div>
+                </a>
+                <a href="#booknow" class="route-card">
+                    <div class="route-icon"><i class="fas fa-city"></i></div>
+                    <div>
+                        <h4>Pondicherry</h4>
+                        <span>One Way / Round Trip</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════ CTA Section ══════ -->
+    <section class="cta-section animate-on-scroll">
         <div class="container">
             <div class="cta-content">
-                <h2>Ready to Experience Premium Cab Service?</h2>
-                <p>Join thousands of satisfied customers who trust RideEasy for their transportation needs.</p>
-                <div class="cta-buttons">
-                    <a href="services.html" class="btn-primary">View Our Services</a>
-                    <a href="about.html" class="btn-secondary">Learn More About Us</a>
-                </div>
+                <h2>24/7 Support — Call Us Anytime</h2>
+                <p>Need a ride? We're available round the clock. Book your drop taxi now and travel at the lowest price.
+                </p>
+                <a href="#booknow" class="btn btn-primary" style="font-size: 1.05rem; padding: 16px 40px;">
+                    <i class="fas fa-car"></i> Book Your Ride Now
+                </a>
+                <a href="tel:+918015646656" class="cta-phone">
+                    <i class="fas fa-phone"></i> +91 8015 646 656
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="footer">
+    <!-- ══════ Footer ══════ -->
+    <footer class="footer" id="footer">
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-brand">
-                    <i class="fas fa-car"></i>
-                    <span>RideEasy</span>
+            <div class="footer-grid">
+                <!-- About Column -->
+                <div class="footer-about">
+                    <a href="index.html" class="nav-brand">
+                        <div class="nav-logo">SC</div>
+                        <div class="nav-brand-text">
+                            <h1>Sanjai</h1>
+                            <span>Car Taxi</span>
+                        </div>
+                    </a>
+                    <p>Best Taxi Service at Lowest Cost! Ride safe, ride smart with Sanjai Car Taxi - your
+                        trusted travel partner across South India.</p>
+                    <div class="footer-social">
+                        <a href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook"><i
+                                class="fab fa-facebook-f"></i></a>
+                        <a href="https://twitter.com" target="_blank" rel="noopener" aria-label="Twitter"><i
+                                class="fab fa-twitter"></i></a>
+                        <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram"><i
+                                class="fab fa-instagram"></i></a>
+                        <a href="https://youtube.com" target="_blank" rel="noopener" aria-label="YouTube"><i
+                                class="fab fa-youtube"></i></a>
+                    </div>
                 </div>
-                <div class="footer-links">
-                    <a href="index.html">Home</a>
-                    <a href="services.html">Services</a>
-                    <a href="about.html">About</a>
-                    <a href="contact.html">Contact</a>
+
+                <!-- Quick Links -->
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="services.html"><i class="fas fa-chevron-right"></i> Services</a></li>
+                        <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact Us</a></li>
+                        <li><a href="#tariff"><i class="fas fa-chevron-right"></i> Our Tariff</a></li>
+                    </ul>
                 </div>
-                <div class="social-links">
-                    <a href="#"><i class="fab fa-facebook"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-linkedin"></i></a>
+
+                <!-- Services -->
+                <div class="footer-col">
+                    <h4>Our Services</h4>
+                    <ul>
+                        <li><a href="services.html"><i class="fas fa-chevron-right"></i> One Way Drop</a></li>
+                        <li><a href="services.html"><i class="fas fa-chevron-right"></i> Outstation Taxi</a></li>
+                        <li><a href="services.html"><i class="fas fa-chevron-right"></i> Airport Taxi</a></li>
+                        <li><a href="services.html"><i class="fas fa-chevron-right"></i> Round Trip</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div class="footer-col">
+                    <h4>Contact Us</h4>
+                    <div class="footer-contact-item">
+                        <i class="fas fa-phone"></i>
+                        <a href="tel:+918015646656">+91 8015 646 656</a>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:sanjaicartaxi@gmail.com">sanjaicartaxi@gmail.com</a>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <p>Sanjai Car Taxi, Aruppukottai Main Road, Villapuram Colony, Madurai, Tamil Nadu, 625012.
+                        </p>
+                    </div>
                 </div>
             </div>
+
             <div class="footer-bottom">
-                <p>&copy; 2024 RideEasy. All rights reserved.</p>
+                <p>© 2026 Sanjai Car Taxi. All Rights Reserved.</p>
             </div>
         </div>
     </footer>
 
-    <!-- Booking Confirmation Modal -->
-    <div id="confirmationModal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <div class="modal-header">
-                <i class="fas fa-check-circle"></i>
-                <h2>Booking Confirmed!</h2>
-            </div>
-            <div class="modal-body">
-                <div class="booking-details">
-                    <h3>Booking Details</h3>
-                    <div class="detail-row">
-                        <span>Booking ID:</span>
-                        <span id="bookingId">--</span>
-                    </div>
-                    <div class="detail-row">
-                        <span>Pickup:</span>
-                        <span id="modalPickup">--</span>
-                    </div>
-                    <div class="detail-row">
-                        <span>Drop-off:</span>
-                        <span id="modalDropoff">--</span>
-                    </div>
-                    <div class="detail-row">
-                        <span>Date & Time:</span>
-                        <span id="modalDateTime">--</span>
-                    </div>
-                    <div class="detail-row">
-                        <span>Car Type:</span>
-                        <span id="modalCarType">--</span>
-                    </div>
-                    <div class="detail-row">
-                        <span>Distance:</span>
-                        <span id="modalDistance">--</span>
-                    </div>
-                    <div class="detail-row">
-                        <span>Duration:</span>
-                        <span id="modalDuration">--</span>
-                    </div>
-                    <div class="detail-row">
-                        <span>Total Price:</span>
-                        <span id="modalPrice">--</span>
-                    </div>
-                </div>
-                <p class="confirmation-message">Your driver will arrive 5 minutes before the scheduled time. You will receive SMS updates about your ride.</p>
-            </div>
-            <div class="modal-footer">
-                <button class="btn-secondary" onclick="closeModal()">Close</button>
-                <button class="btn-primary" onclick="trackRide()">Track Ride</button>
-            </div>
-        </div>
+    <!-- ══════ Floating Buttons ══════ -->
+    <div class="floating-btns">
+        <a href="https://wa.me/918015646656?text=Hi%20I%20want%20to%20book%20a%20taxi" class="float-btn float-whatsapp"
+            target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+        <a href="tel:+918015646656" class="float-btn float-call" aria-label="Call Us">
+            <i class="fas fa-phone"></i>
+        </a>
     </div>
 
-    <!-- API Key Notice Modal -->
-    <div id="apiKeyModal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <i class="fas fa-key"></i>
-                <h2>Google Maps API Required</h2>
-            </div>
-            <div class="modal-body">
-                <p>To use the location autocomplete and route visualization features, you need to:</p>
-                <ol>
-                    <li>Get a Google Maps API key from <a href="https://console.cloud.google.com/" target="_blank">Google Cloud Console</a></li>
-                    <li>Enable the following APIs:
-                        <ul>
-                            <li>Maps JavaScript API</li>
-                            <li>Places API</li>
-                            <li>Directions API</li>
-                            <li>Distance Matrix API</li>
-                        </ul>
-                    </li>
-                    <li>Replace 'YOUR_API_KEY' in the script tag with your actual API key</li>
-                </ol>
-                <p><strong>For demo purposes, the app will work with simulated data.</strong></p>
-            </div>
-            <div class="modal-footer">
-                <button class="btn-primary" onclick="closeApiKeyModal()">Continue with Demo</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Load Google Maps API -->
-    <script async defer 
-        src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places&callback=initMap">
-    </script>
+    <!-- Scripts -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places"></script>
     <script src="script.js"></script>
 </body>
+
 </html>
