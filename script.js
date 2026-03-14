@@ -147,7 +147,7 @@ function initBookingForm() {
       `📞 *Phone:* ${phone}`;
 
     // 1. WhatsApp Integration
-    const whatsappUrl = `https://wa.me/91936188524?text=${encodeURIComponent(rawMessage)}`;
+    const whatsappUrl = `https://wa.me/917418954062?text=${encodeURIComponent(rawMessage)}`;
     window.open(whatsappUrl, '_blank');
 
     // 2. Email Integration (mailto)
