@@ -12,7 +12,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initContactForm();
   initSmoothScroll();
   setMinDate();
-  initAutocomplete(); // Initialize Google Maps Autocomplete
 });
 
 // ── Navbar Scroll Effect ──
@@ -148,7 +147,7 @@ function initBookingForm() {
       `📞 *Phone:* ${phone}`;
 
     // 1. WhatsApp Integration
-    const whatsappUrl = `https://wa.me/918015646656?text=${encodeURIComponent(rawMessage)}`;
+    const whatsappUrl = `https://wa.me/91936188524?text=${encodeURIComponent(rawMessage)}`;
     window.open(whatsappUrl, '_blank');
 
     // 2. Email Integration (mailto)
@@ -163,30 +162,6 @@ function initBookingForm() {
 
     showNotification('Booking request sent! Connecting to WhatsApp and Email...', 'success');
     form.reset();
-  });
-}
-
-// ── Google Maps Autocomplete ──
-function initAutocomplete() {
-  const pickupInput = document.getElementById('pickup');
-  const dropoffInput = document.getElementById('dropoff');
-
-  if (!pickupInput || !dropoffInput || typeof google === 'undefined') return;
-
-  const options = {
-    componentRestrictions: { country: 'in' }, // Restrict to India
-    fields: ['address_components', 'geometry', 'icon', 'name'],
-    types: ['establishment', 'geocode']
-  };
-
-  const autocompletePickup = new google.maps.places.Autocomplete(pickupInput, options);
-  const autocompleteDropoff = new google.maps.places.Autocomplete(dropoffInput, options);
-
-  // Prevent form submission on enter key inside autocomplete
-  [pickupInput, dropoffInput].forEach(input => {
-    input.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter') e.preventDefault();
-    });
   });
 }
 
@@ -212,7 +187,7 @@ function initContactForm() {
       `📌 *Subject:* ${subject || 'General'}%0A` +
       `💬 *Message:* ${messageText}`;
 
-    const whatsappUrl = `https://wa.me/918015646656?text=${message}`;
+    const whatsappUrl = `https://wa.me/919361778524?text=${message}`;
     window.open(whatsappUrl, '_blank');
 
     showNotification('Message sent successfully! We\'ll get back to you soon.', 'success');
