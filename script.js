@@ -128,6 +128,7 @@ function initBookingForm() {
     const time = document.getElementById('pickup-time').value;
     const name = document.getElementById('passenger-name').value;
     const phone = document.getElementById('passenger-phone').value;
+    const vehicleType = document.getElementById('vehicle-type')?.value || 'Not specified';
 
     // Validate phone
     if (!/^[6-9]\d{9}$/.test(phone.replace(/\s/g, '').replace('+91', ''))) {
@@ -135,25 +136,40 @@ function initBookingForm() {
       return;
     }
 
-    // Compose details
+    // Generate Booking ID
+    const bookingId = Math.floor(1000 + Math.random() * 9000);
+
+    // Format Date for message (e.g., 07 Jan 2026)
+    const dateObj = new Date(date);
+    const formattedDate = dateObj.toLocaleDateString('en-GB', {
+      day: '2-digit',
+      month: 'short',
+      year: 'numeric'
+    });
+
+    // Compose details in requested format
     const tripTypeText = tripType === 'oneway' ? 'One Way' : 'Round Trip';
-    const rawMessage = `🚕 *New Taxi Booking Request*\n\n` +
-      `📌 *Trip Type:* ${tripTypeText}\n` +
-      `📍 *Pickup:* ${pickup}\n` +
-      `📍 *Drop:* ${dropoff}\n` +
-      `📅 *Date:* ${date}\n` +
-      `⏰ *Time:* ${time}\n` +
-      `👤 *Name:* ${name}\n` +
-      `📞 *Phone:* ${phone}`;
+    const rawMessage = `*🚖 New Trip Alert*\n\n` +
+      `🆔 *Booking ID:* ${bookingId}\n\n` +
+      `👤 *Customer:* ${name}\n` +
+      `📞 *Mobile:* ${phone}\n\n` +
+      `📅 *Date:* ${formattedDate}, ${time}\n\n` +
+      `🛤️ *Trip Type:* ${tripTypeText}\n` +
+      `🚗 *Vehicle Type:* ${vehicleType}\n\n` +
+      `📍 *Pickup City:* ${pickup}\n` +
+      `📍 *Drop City:* ${dropoff}\n\n` +
+      `💰 *Total Fare:* ₹TBA\n` +
+      `💳 *Advance:* ₹0\n` +
+      `💵 *To Collect:* ₹TBA`;
 
     // 1. WhatsApp Integration
     const whatsappUrl = `https://wa.me/917418954062?text=${encodeURIComponent(rawMessage)}`;
     window.open(whatsappUrl, '_blank');
 
     // 2. Email Integration (mailto)
-    const emailSubject = `New Taxi Booking Request - ${name}`;
-    const emailBody = rawMessage.replace(/\*/g, '').replace(/%0A/g, '\n');
-    const mailtoUrl = `mailto:sanjaicartaxi@gmail.com?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+    const emailSubject = `New Trip Alert - Booking ID: ${bookingId}`;
+    const emailBody = rawMessage.replace(/\*/g, ''); // Remove markdown stars for email
+    const mailtoUrl = `mailto:pjvs404@gmail.com?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
 
     // Slight delay for email to not conflict with WhatsApp window
     setTimeout(() => {
@@ -187,7 +203,7 @@ function initContactForm() {
       `📌 *Subject:* ${subject || 'General'}%0A` +
       `💬 *Message:* ${messageText}`;
 
-    const whatsappUrl = `https://wa.me/919361778524?text=${message}`;
+    const whatsappUrl = `https://wa.me/917418954062?text=${message}`;
     window.open(whatsappUrl, '_blank');
 
     showNotification('Message sent successfully! We\'ll get back to you soon.', 'success');
