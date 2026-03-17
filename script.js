@@ -1,5 +1,5 @@
 /* ===========================
-   SANJAI CAR TAXI - MAIN SCRIPTS
+   BLUE MOON DROP TAXI - MAIN SCRIPTS
    =========================== */
 
 // ── DOM Ready ──

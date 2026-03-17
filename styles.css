@@ -1,5 +1,5 @@
 /* ===========================
-   SANJAI CAR TAXI - PREMIUM BLUE THEME
+   BLUE MOON DROP TAXI - PREMIUM BLUE THEME
    Minimalist & Premium Design System
    =========================== */
 
@@ -359,8 +359,12 @@ img {
   background: var(--primary-50);
 }
 
+.mobile-nav-cta {
+  display: none;
+}
+
 .nav-cta {
-  display: flex;
+  display: none;
   align-items: center;
   gap: 12px;
 }
@@ -1728,7 +1732,43 @@ img {
   }
 
   .navbar {
-    padding: 12px 0;
+    padding: 0;
+    height: 70px;
+    display: flex;
+    align-items: center;
+  }
+
+  .navbar .container {
+    width: 100%;
+    max-width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+  }
+
+  .nav-brand {
+    position: relative;
+    z-index: 1001;
+    gap: 8px;
+  }
+
+  .nav-logo {
+    width: 38px;
+    height: 38px;
+    font-size: 1rem;
+    border-radius: 8px;
+  }
+
+  .nav-brand-text h1 {
+    font-size: 1.1rem;
+    line-height: 1;
+  }
+
+  .nav-brand-text span {
+    font-size: 0.65rem;
+    letter-spacing: 1px;
   }
 
   .nav-links {
@@ -1736,16 +1776,15 @@ img {
     position: fixed;
     top: 0;
     left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(255, 255, 255, 0.98);
-    backdrop-filter: blur(20px);
+    width: 100%;
+    height: 100vh;
+    background: #ffffff;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 8px;
-    z-index: 999;
-    animation: fadeIn 0.3s ease-out;
+    gap: 24px;
+    padding: 20px;
+    z-index: 1000;
   }
 
   .nav-links.open {
@@ -1753,28 +1792,46 @@ img {
   }
 
   .nav-links a {
-    font-size: 1.2rem;
-    padding: 14px 32px;
+    font-size: 1.4rem;
+    font-weight: 700;
+    padding: 12px 32px;
+    width: 100%;
+    text-align: center;
+    border-radius: 12px;
+    color: var(--neutral-900);
   }
 
-  .nav-cta {
-    display: none;
+  .nav-links a.active {
+    background: var(--primary-50);
+    color: var(--primary-700);
   }
 
-  .nav-cta.mobile-show {
+  .mobile-nav-cta {
     display: flex;
     flex-direction: column;
-    position: fixed;
-    bottom: 100px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 1000;
-    gap: 12px;
     align-items: center;
+    gap: 16px;
+    width: 100%;
+    margin-top: 20px;
+    border-top: 1px solid var(--neutral-100);
+    padding-top: 30px;
+  }
+
+  .mobile-nav-cta .nav-phone {
+    font-size: 1.2rem;
+    padding: 12px 24px;
+  }
+
+  .mobile-nav-cta .nav-book-btn {
+    width: 100%;
+    max-width: 280px;
+    font-size: 1.1rem;
+    padding: 16px;
   }
 
   .mobile-menu-btn {
     display: flex;
+    z-index: 1001;
   }
 
   .hero {
